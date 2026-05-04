@@ -10,7 +10,7 @@ def test_dao():
     dao.drop()  # cleanup after test
 
 
-# Test 1: Valid data should be inserted successfully
+# Test 1: Valid data be inserted successfully
 def test_create_valid(test_dao):
     data = {
         "name": "John",
