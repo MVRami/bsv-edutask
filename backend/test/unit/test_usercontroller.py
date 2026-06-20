@@ -42,3 +42,11 @@ def test_no_user_found(mock_dao):
 
     with pytest.raises(IndexError):
         controller.get_user_by_email("user@test.com")
+
+def test_dao_exception(mock_dao):
+    mock_dao.find.side_effect = Exception("Database error")
+
+    controller = UserController(mock_dao)
+
+    with pytest.raises(Exception):
+        controller.get_user_by_email("user@test.com")
